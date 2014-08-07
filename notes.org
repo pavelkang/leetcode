@@ -1,0 +1,13 @@
+* Two Sum
+  - Hash Table
+  - STL <vector> <map>
+* Generate Parenthesis
+  - DFS
+* Longest Well-formed sequence
+  - Stack
+* Longest Common Prefix
+  - c++ c string/char conversion
+    c++ string to c string: str.c_str()
+* Pascal Triangle
+  - Simple recursion
+* 3 Sum
