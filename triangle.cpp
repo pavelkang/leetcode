@@ -6,6 +6,7 @@
 #include<stack>
 #include<map>
 using namespace std;
+<<<<<<< HEAD
 int minimumTotal(vector<vector<int> > &triangle) {
   int rows = triangle.size();
   if (rows == 1) {
@@ -31,5 +32,13 @@ int main() {
   triangle.push_back(b);
   triangle.push_back(c);
   printf("%d\n", minimumTotal(triangle));
+=======
+
+int minimumTotal(vector<vector<int> > &triangle) {
+
+}
+
+int main() {
+>>>>>>> 491dfd8f50c1bb1ec45ad16a6831e41d92c6a8a5
   return 0;
 }

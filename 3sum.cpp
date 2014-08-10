@@ -7,52 +7,33 @@
 #include<map>
 using namespace std;
 
-vector< vector<int> > twoSum(vector<int> &num, int start, int target) {
-  vector< vector<int> > answer;
-  if (start>=num.size()-1)
-    return answer;
-  map<int, int> table;
-  table.clear();
-  for (int i=start+1; i<num.size(); i++) {
-    table[num[i]] = i;
-  }
-  for (int i=start+1; i<num.size(); i++) {
-    if (table.find(target-num[i])!=table.end() && table[target-num[i]]!=i){
-      int j = table[target-num[i]];
-      vector<int> result;
-      if (i<j) {
-        result.push_back(i); result.push_back(j);
-      } else {
-        result.push_back(j); result.push_back(i);
-      }
-      answer.push_back(result);
-    }
-  }
-  return answer;
-}
 vector< vector<int> > threeSum(vector<int> &num) {
-  //sort(num.begin(), num.end());
-  //num.erase(unique(num.begin(), num.end()), num.end());
-  map< vector<int>, int > answers; answers.clear();
+  sort(num.begin(), num.end());
+  map< vector<int>, bool >table; table.clear();
+  /*for (int i=0; i<num.size(); i++) {
+    printf("%d ", num[i]);
+    } printf("\n");*/
+  int l = num.size();
   vector< vector<int> > answer;
-  if (num.size()<3)
+  if (l<3)
     return answer;
-  for (int i=0; i<num.size(); i++) {
-    int target = -num[i];
-    vector< vector<int> > twoAnswer = twoSum(num, i, target);
-    for (int j=0; j<twoAnswer.size(); j++) {
-      vector<int> result;
-      i, twoAnswer[j][0], twoAnswer[j][1];
-      vector<int> resultID;
-      int sumi = num[i] + num[twoAnswer[j][0]] + num[twoAnswer[j][1]];
-      int mini = min(min(num[i], num[twoAnswer[j][0]]),num[twoAnswer[j][1]]);
-      int maxi = max(max(num[i], num[twoAnswer[j][0]]),num[twoAnswer[j][1]]);
-      resultID.push_back(mini);
-      resultID.push_back(sumi-(mini+maxi));
-      resultID.push_back(maxi);
-      if (answers.find(resultID)==answers.end()) {
-        answer.push_back(resultID);
-        answers[resultID] = 1;
+  for (int first=0; first<l-2; first++) {
+    int target = -num[first];
+    int second = first+1; int third = l-1;
+    while(third>second){
+      if (num[second]+num[third]==target) {
+        vector<int> result;
+        result.push_back(num[first]); result.push_back(num[second]);
+        result.push_back(num[third]);
+        if (table.find(result)==table.end()) {
+          answer.push_back(result);
+          table[result] = true;
+        }
+        second += 1; third -= 1;
+      } else if (num[second] + num[third] > target) {
+        third -= 1;
+      } else { // <
+        second += 1;
       }
     }
   }
