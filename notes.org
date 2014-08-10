@@ -5,6 +5,8 @@
     table.find(element) == table.end() => element not in table
 * 3 Sum
   - sort(v.begin(), v.end())
+* K Sum
+  - All based on 3Sum
 * Generate Parenthesis
   - DFS
 * Longest Well-formed sequence
@@ -22,3 +24,5 @@
   - Use A[32] to remember all digits, mod 3 at last
 * Reverse Number
   - mod
+* Is Palindrome
+  -
