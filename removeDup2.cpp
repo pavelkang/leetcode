@@ -26,9 +26,6 @@ int removeDuplicates(int A[], int n) {
         A[length] = val; length++;
         acc++;
       }
-      else {
-        length--; acc = 1;
-      }
     }
     currInd++;
   }
@@ -36,7 +33,7 @@ int removeDuplicates(int A[], int n) {
 }
 
 int main() {
-  int A[] = {1, 1, 1, 2, 2, 3};
+  int A[] = {1, 1, 1, 2, 2, 3}; int B[] = {1, 1, 1, 1};
   int answer = removeDuplicates(A, 6);
   printf("length is %d\n", answer);
   for (int i=0; i<answer; i++) {

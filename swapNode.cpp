@@ -26,5 +26,7 @@ ListNode *swapPairs(ListNode *head) {
 }
 
 int main() {
+  char a = 'a';
+  printf("%c\n", toupper(a));
   return 0;
 }
